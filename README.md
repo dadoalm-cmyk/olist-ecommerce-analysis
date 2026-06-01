@@ -1,177 +1,176 @@
 # Olist E-commerce Analysis
 
-##  Contexto
+## Context
 
-Este projeto realiza uma análise exploratória de dados (EDA) utilizando **SQL e Python (Pandas, Matplotlib e Seaborn)** a partir do dataset público de e-commerce brasileiro da **Olist**. Devido aos insights relevados foram adicionado a análise de Cohort e Churn.
+This project performs an Exploratory Data Analysis (EDA) using **SQL and Python (Pandas, Matplotlib, and Seaborn)** based on the public Brazilian e-commerce dataset from **Olist**. Due to the insights revealed, Cohort Analysis and Churn Analysis were also added.
 
-## Objetivo
-O objetivo é entender o comportamento dos clientes, padrões de compra, retenção, churn e métricas de negócio relevantes para tomada de decisão.
+## Objective
 
+The objective is to understand customer behavior, purchasing patterns, retention, churn, and relevant business metrics for decision-making.
 
+## Metrics
 
-## Métricas
-- Valor médio do ticket
-- ​​Frequência de compra
-- Valor vitalício estimado (LTV)
-- Retenção da coorte
-- Taxa de cancelamento
-
-
----
-
-## Visão Geral dos Dados
-
-* **Total de pedidos:** 99.441
-* **Total de clientes (registros):** 99.441
-* **Total de clientes únicos (`customer_unique_id`):** 96.096
-* **Total de produtos:** 32.951
-
-### Insight inicial
-
-A base apresenta uma relação próxima de **1:1 entre clientes e pedidos**, sugerindo um comportamento de compra pontual, no qual a maioria dos clientes realizou apenas um pedido durante o período analisado.
+* Average Order Value
+* Purchase Frequency
+* Estimated Lifetime Value (LTV)
+* Cohort Retention
+* Churn Rate
 
 ---
 
-##  Status dos Pedidos
+## Data Overview
 
-A grande maioria dos pedidos (**~97%**) foi entregue com sucesso, indicando uma operação logística bem estabelecida. Os pedidos cancelados ou indisponíveis representam uma parcela pequena do total, sugerindo que falhas de estoque, pagamento ou logística ocorrem de forma pontual.
+* **Total orders:** 99,441
+* **Total customers (records):** 99,441
+* **Total unique customers (`customer_unique_id`):** 96,096
+* **Total products:** 32,951
 
-Além disso, observa-se um número muito reduzido de pedidos em estágios iniciais do fluxo (created, approved, processing), indicando eficiência no processamento dos pedidos ao longo do funil.
+### Initial Insight
 
----
-
-##  Distribuição Geográfica dos Clientes
-
-Observa-se uma forte concentração de clientes na **região Sudeste**, com destaque para o estado de **São Paulo**, que representa aproximadamente **42% da base total**. Os estados do Rio de Janeiro e Minas Gerais aparecem em seguida, reforçando a importância econômica da região para o negócio.
-
-As regiões Sul e Sudeste concentram a maior parte dos clientes, enquanto os estados do Norte apresentam participação reduzida, indicando possíveis desafios logísticos ou menor penetração de mercado nessas regiões.
+The dataset presents a nearly **1:1 relationship between customers and orders**, suggesting a one-time purchase behavior, where most customers placed only a single order during the analyzed period.
 
 ---
 
-## Clientes Reais vs Registros
+## Order Status
 
-A base apresenta **99.441 registros de clientes**, mas apenas **96.096 clientes reais** (`customer_unique_id`), indicando que uma parcela dos clientes realizou mais de um pedido ao longo do período analisado.
+The vast majority of orders (**~97%**) were successfully delivered, indicating a well-established logistics operation. Canceled or unavailable orders represent a small portion of the total, suggesting that inventory, payment, or logistics failures occur only occasionally.
 
-Esse comportamento sugere oportunidades para estratégias de fidelização e aumento do **Lifetime Value (LTV)** dos clientes recorrentes.
-
----
-
-## Análises de Negócio (SQL)
-
-### Pergunta: Quais são as categorias de produtos mais vendidas?
-
-As categorias com maior volume de vendas são **cama_mesa_banho**, **beleza_saude** e **esporte_lazer**, indicando preferência dos clientes por produtos de consumo recorrente e utilidades domésticas.
-
-Esse padrão sugere uma base de clientes orientada a compras funcionais, com potencial para estratégias de **recompra** e **cross-sell**.
+Additionally, there is a very small number of orders in the initial stages of the process (created, approved, processing), indicating efficiency in order processing throughout the funnel.
 
 ---
 
-### Pergunta: Qual é o tempo médio de entrega dos pedidos?
+## Customer Geographic Distribution
 
-O tempo médio de entrega dos pedidos foi de aproximadamente **12,6 dias**. Observa-se alta variabilidade entre pedidos, com entregas que variam de poucos dias até mais de 30 dias, indicando diferenças logísticas entre regiões e sellers.
+There is a strong concentration of customers in the **Southeast region**, particularly in the state of **São Paulo**, which represents approximately **42% of the total customer base**. The states of Rio de Janeiro and Minas Gerais follow, reinforcing the region's economic importance to the business.
 
----
-
-### Pergunta: Como a receita se distribui entre os estados?
-
-A receita está fortemente concentrada na **região Sudeste**, com destaque para **São Paulo**, que representa a maior parcela do faturamento total. Esse comportamento reflete tanto a densidade populacional quanto a maturidade do e-commerce na região.
+The South and Southeast regions account for most customers, while Northern states have lower participation, indicating possible logistical challenges or lower market penetration in these areas.
 
 ---
 
-### Pergunta: Qual é o ticket médio por pedido?
+## Real Customers vs. Customer Records
 
-O ticket médio por pedido é de aproximadamente **R$ 160**, indicando um e-commerce de consumo intermediário, sem forte dependência de produtos de alto valor unitário.
+The dataset contains **99,441 customer records**, but only **96,096 unique customers** (`customer_unique_id`), indicating that some customers placed more than one order during the analyzed period.
 
----
-
-##  Análises em Python (Pandas)
-
-### Pergunta: Quanto um cliente gasta, em média, por pedido?
-
-O ticket médio por pedido foi de aproximadamente **R$ 137,75**. Esse valor indica um e-commerce com foco em produtos de consumo intermediário.
-
-Esse comportamento sugere oportunidades para estratégias de **upsell** e **cross-sell**, visando aumentar o valor médio das compras.
+This behavior suggests opportunities for customer loyalty strategies and increasing the **Customer Lifetime Value (LTV)** of returning customers.
 
 ---
 
-### Pergunta: Qual a proporção de clientes recorrentes?
+## Business Analysis (SQL)
 
-A análise mostra que apenas **3,12%** dos clientes realizam mais de uma compra, indicando um comportamento predominantemente pontual.
+### Question: Which product categories sell the most?
 
-Esse padrão reforça a necessidade de estratégias de **retenção**, como programas de fidelidade, campanhas de recompra e personalização de ofertas.
+The categories with the highest sales volume are **bed_bath_table**, **health_beauty**, and **sports_leisure**, indicating customer preference for recurring-consumption products and household essentials.
 
----
-
-### Pergunta: Quanto tempo os clientes levam para recomprar?
-
-A distribuição do tempo entre compras apresenta forte assimetria à direita, com concentração de recompras em curto prazo e uma cauda longa representando clientes que retornam após longos períodos.
-
-* **Média:** ~78 dias (~2,5 meses)
-* **Mediana:** 28 dias
-* **Q1:** 0 dias (clientes que fizeram dois pedidos no mesmo dia)
-* **Máximo:** 608 dias (~2 anos)
-
-O baixo percentual de clientes recorrentes aliado ao longo intervalo médio entre compras sugere um **Lifetime Value limitado**, indicando oportunidades para estratégias de retenção e fidelização.
+This pattern suggests a customer base focused on functional purchases, with potential opportunities for **repurchase** and **cross-selling** strategies.
 
 ---
 
-###  Pergunta: Qual é o Lifetime Value (LTV) médio dos clientes?
+### Question: What is the average delivery time?
 
-O **LTV médio estimado** é de **R$ 142,55**, fortemente impactado pela baixa frequência de compra (**1,03 pedidos por cliente**).
-
->  Este LTV é uma **estimativa simplificada**, calculada como ticket médio × frequência média de compra, e não considera margem, custos ou tempo de vida completo do cliente.
-
-Esse resultado indica que a maior parte da receita é gerada na **primeira compra**, reforçando a dependência de aquisição de novos clientes.
+The average delivery time was approximately **12.6 days**. There is considerable variability among orders, with deliveries ranging from a few days to more than 30 days, indicating logistical differences across regions and sellers.
 
 ---
 
-##  Análise de Cohortes
+### Question: How is revenue distributed across states?
 
-###  Pergunta: Como a retenção evolui ao longo do tempo?
-
-A matriz de retenção mostra que praticamente todos os cohorts apresentam retenção muito baixa após o primeiro mês (**< 1%**).
-
-Esse comportamento indica um modelo de negócio com **compra pontual**, no qual o cliente realiza a compra por uma necessidade específica e não retorna com frequência. Esse padrão é típico de **marketplaces**, diferentemente de modelos de assinatura ou SaaS.
+Revenue is heavily concentrated in the **Southeast region**, especially in **São Paulo**, which represents the largest share of total revenue. This behavior reflects both population density and the maturity of e-commerce in the region.
 
 ---
 
-##  Churn (Perda de Clientes)
+### Question: What is the average order value?
 
-## Definição de cancelamento
-Os clientes foram considerados como tendo cancelado a compra se realizaram apenas uma compra.
-
-
-###  Pergunta: Qual é a taxa de churn dos clientes?
-
-A análise de coortes evidenciou retenção muito baixa após o primeiro mês. Para aprofundar, foi calculada a taxa de churn considerando **90 dias sem recompra**.
-
-A **taxa de churn em 90 dias foi de 30,37%**, confirmando um comportamento de compra pontual típico de marketplaces.
+The average order value is approximately **R$160**, indicating an e-commerce business focused on mid-range consumer products, without a strong dependence on high-ticket items.
 
 ---
 
-###  Pergunta: O churn varia por estado?
+## Python Analysis (Pandas)
 
-A análise de churn por estado mostrou taxas elevadas e homogêneas em todas as regiões, indicando que a baixa recorrência é um **padrão geral do marketplace**, e não um problema regional específico.
+### Question: How much does a customer spend on average per order?
 
----
+The average order value per order was approximately **R$137.75**. This indicates an e-commerce business focused on mid-range consumer products.
 
-###  Pergunta: O churn varia por categoria de produto?
-
-Categorias com **churn de 100%** correspondem majoritariamente a produtos de compra pontual ou sazonal, o que explica a ausência de recompra e reforça o perfil não recorrente do marketplace.
+This behavior suggests opportunities for **upselling** and **cross-selling** strategies aimed at increasing the average purchase value.
 
 ---
 
-###  Pergunta: O tempo de entrega impacta o churn?
+### Question: What is the proportion of repeat customers?
 
-O tempo médio de entrega não apresentou diferença relevante entre clientes que churnaram e clientes retidos, sugerindo que a baixa recorrência está mais relacionada à **natureza pontual das compras** do que à experiência logística.
+The analysis shows that only **3.12%** of customers made more than one purchase, indicating a predominantly one-time purchase behavior.
 
-**Definições utilizadas:**
-
-* Clientes retidos: realizaram mais de uma compra
-* Clientes churn: não realizaram nova compra dentro de 90 dias após a primeira compra
+This pattern reinforces the need for **retention strategies**, such as loyalty programs, repurchase campaigns, and personalized offers.
 
 ---
 
-##  Conclusão
+### Question: How long do customers take to make a repeat purchase?
 
-O projeto evidencia que o e-commerce analisado possui um modelo fortemente orientado a **compras pontuais**, com baixa retenção e LTV limitado. Os resultados sugerem que estratégias de retenção, recompra e fidelização representam as principais oportunidades de geração de valor para o negócio.
+The distribution of time between purchases is highly right-skewed, with repeat purchases concentrated in short periods and a long tail representing customers who return after extended periods.
+
+* **Mean:** ~78 days (~2.5 months)
+* **Median:** 28 days
+* **Q1:** 0 days (customers who placed two orders on the same day)
+* **Maximum:** 608 days (~2 years)
+
+The low percentage of repeat customers combined with the long average interval between purchases suggests a **limited Lifetime Value**, highlighting opportunities for retention and loyalty strategies.
+
+---
+
+### Question: What is the average Customer Lifetime Value (LTV)?
+
+The estimated **average LTV** is **R$142.55**, heavily impacted by the low purchase frequency (**1.03 orders per customer**).
+
+> This LTV is a **simplified estimate**, calculated as average order value × average purchase frequency, and does not consider margins, costs, or the customer's full lifetime.
+
+This result indicates that most revenue is generated from the **first purchase**, reinforcing the company's dependence on acquiring new customers.
+
+---
+
+## Cohort Analysis
+
+### Question: How does retention evolve over time?
+
+The retention matrix shows that virtually all cohorts experience very low retention after the first month (**<1%**).
+
+This behavior indicates a business model driven by **one-time purchases**, where customers buy to satisfy a specific need and do not frequently return. This pattern is typical of **marketplaces**, unlike subscription-based or SaaS business models.
+
+---
+
+## Churn Analysis
+
+## Churn Definition
+
+Customers were considered churned if they made only one purchase.
+
+### Question: What is the customer churn rate?
+
+The cohort analysis revealed very low retention after the first month. To investigate further, the churn rate was calculated considering **90 days without a repeat purchase**.
+
+The **90-day churn rate was 30.37%**, confirming the one-time purchase behavior typical of marketplaces.
+
+---
+
+### Question: Does churn vary by state?
+
+The churn analysis by state showed high and relatively homogeneous rates across all regions, indicating that low repeat purchasing is a **general marketplace pattern**, rather than a region-specific issue.
+
+---
+
+### Question: Does churn vary by product category?
+
+Categories with **100% churn** mostly correspond to products with one-time or seasonal purchase behavior, which explains the absence of repeat purchases and reinforces the marketplace's non-recurring nature.
+
+---
+
+### Question: Does delivery time impact churn?
+
+The average delivery time did not show any significant difference between churned and retained customers, suggesting that low repeat purchasing is more related to the **one-time nature of purchases** than to the logistics experience.
+
+**Definitions used:**
+
+* Retained customers: made more than one purchase
+* Churned customers: did not make another purchase within 90 days after their first purchase
+
+---
+
+## Conclusion
+
+This project demonstrates that the analyzed e-commerce business is strongly driven by **one-time purchases**, with low retention and limited LTV. The results suggest that retention, repurchase, and customer loyalty strategies represent the main opportunities for generating additional business value.
