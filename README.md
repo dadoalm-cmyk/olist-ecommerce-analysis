@@ -124,52 +124,7 @@ This result indicates that most revenue is generated from the **first purchase**
 
 ---
 
-## Cohort Analysis
 
-### Question: How does retention evolve over time?
-
-The retention matrix shows that virtually all cohorts experience very low retention after the first month (**<1%**).
-
-This behavior indicates a business model driven by **one-time purchases**, where customers buy to satisfy a specific need and do not frequently return. This pattern is typical of **marketplaces**, unlike subscription-based or SaaS business models.
-
----
-
-## Churn Analysis
-
-## Churn Definition
-
-Customers were considered churned if they made only one purchase.
-
-### Question: What is the customer churn rate?
-
-The cohort analysis revealed very low retention after the first month. To investigate further, the churn rate was calculated considering **90 days without a repeat purchase**.
-
-The **90-day churn rate was 30.37%**, confirming the one-time purchase behavior typical of marketplaces.
-
----
-
-### Question: Does churn vary by state?
-
-The churn analysis by state showed high and relatively homogeneous rates across all regions, indicating that low repeat purchasing is a **general marketplace pattern**, rather than a region-specific issue.
-
----
-
-### Question: Does churn vary by product category?
-
-Categories with **100% churn** mostly correspond to products with one-time or seasonal purchase behavior, which explains the absence of repeat purchases and reinforces the marketplace's non-recurring nature.
-
----
-
-### Question: Does delivery time impact churn?
-
-The average delivery time did not show any significant difference between churned and retained customers, suggesting that low repeat purchasing is more related to the **one-time nature of purchases** than to the logistics experience.
-
-**Definitions used:**
-
-* Retained customers: made more than one purchase
-* Churned customers: did not make another purchase within 90 days after their first purchase
-
----
 
 ## Conclusion
 
